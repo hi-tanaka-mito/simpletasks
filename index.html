@@ -331,43 +331,54 @@ label.fld{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--
 
   .task-form{
     width:100%;
- *}
+    margin:0;
+    padding:0;
+  }
 
   .task-form .tf-row{
-    displ*y:flex;
-    flex-direction:column;*    align-items:stretch;
-    width*100%;
-    gap:10px;
-  }
-
-  .task-f*rm .fld{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;   /* ← stretchではなく左寄せ */
     width:100%;
-    min-w*dth:0;
-    flex:none;
+    gap:10px;
+    margin:0;
+    padding:0;
   }
 
-  .task*form .fld.date,
-  .task-form .fld.*arrow,
+  .task-form .fld,
+  .task-form .fld.date,
+  .task-form .fld.narrow,
   .task-form .fld.wide{
-   *width:100%;
+    display:flex;
+    flex-direction:column;
+
+    width:100%;
     min-width:0;
-    f*ex:none;
+    max-width:100%;
+
+    flex:none;
+
+    margin:0;
+    padding:0;
+
+    align-self:flex-start;    /* ← 左寄せ */
   }
 
   .task-form label{
-*   width:100%;
-    overflow:hidden*
+    overflow:hidden;
+    text-align:left;
   }
 
   .task-form input,
-  .task-*orm select,
-  .task-form textarea{*    width:100%;
+  .task-form select,
+  .task-form textarea{
+    width:100%;
     min-width:0;
- *  max-width:100%;
-    box*sizing:border-box;
+    max-width:100%;
+    box-sizing:border-box;
+    margin:0;
   }
 
-  /* Safariの日付入力対策 */
   .task-form input[type="date"]{
     width:100%;
     min-width:0;
@@ -378,6 +389,7 @@ label.fld{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--
     -webkit-appearance:none;
 
     font-size:16px;
+    margin:0;
   }
 
   .date-inp{
@@ -385,10 +397,13 @@ label.fld{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--
     min-width:0;
     max-width:100%;
     box-sizing:border-box;
+    margin:0;
   }
 
   #tfGroupRow{
     width:100%;
+    margin:0;
+    padding:0;
   }
 
   #tfGroupRow .fld{
@@ -402,9 +417,16 @@ label.fld{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--
 
   .task-form .tf-btns{
     width:100%;
+
     display:flex;
     flex-direction:column;
+
     gap:8px;
+
+    margin:0;
+    padding:0;
+
+    align-items:stretch;
   }
 
   .task-form .tf-btns button{
@@ -412,6 +434,7 @@ label.fld{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--
     flex:none;
   }
 }
+
 </style>
 </head>
 <body>
