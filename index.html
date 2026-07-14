@@ -240,7 +240,9 @@ label.fld{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--
   /* keep task buttons on their own line before they can overflow */
   .tf-btns{flex:1 1 100%;justify-content:flex-start;}
 }
+
 @media (max-width:860px){
+
   body{
     padding:8px;
   }
@@ -277,16 +279,31 @@ label.fld{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--
     max-width:150px;
   }
 
+  /* 日付入力を横2列ではなく安全幅に */
   .fld.date{
-    flex:1 1 calc(50% - 8px);
+    flex:1 1 100%;
+    min-width:0;
   }
 
   .fld.narrow{
-    flex:1 1 calc(50% - 8px);
+    flex:1 1 100%;
+    min-width:0;
   }
 
   .fld.wide{
     flex:1 1 100%;
+    min-width:0;
+  }
+
+  .date-inp{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
+  .tf-btns{
+    width:100%;
   }
 
   .tf-btns button{
@@ -308,70 +325,80 @@ label.fld{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--
     gap:6px;
   }
 
-  /* ===== タスク設定全体を1列化 ===== */
+  /* ==========================
+     iPhone縦表示対策
+     ========================== */
 
   .task-form{
     width:100%;
-  }
+ *}
 
   .task-form .tf-row{
-    display:flex;
-    flex-direction:column;
-    align-items:stretch;
-    width:100%;
+    displ*y:flex;
+    flex-direction:column;*    align-items:stretch;
+    width*100%;
     gap:10px;
   }
 
-  /* 開始予定日・終了予定日 */
-  .task-form .fld.date{
-    flex:none;
+  .task-f*rm .fld{
     width:100%;
-    min-width:0;
+    min-w*dth:0;
+    flex:none;
   }
 
-  /* 個人/チーム・項目・進捗率 */
-  .task-form .fld.narrow{
-    flex:none;
-    width:100%;
-    min-width:0;
-  }
-
-  /* タスク内容・備考 */
+  .task*form .fld.date,
+  .task-form .fld.*arrow,
   .task-form .fld.wide{
-    flex:none;
-    width:100%;
+   *width:100%;
     min-width:0;
+    f*ex:none;
   }
 
-  /* date input対策(iPhone Safari) */
-  .task-form .date-inp{
-    width:100%;
-    min-width:0;
-    max-width:100%;
+  .task-form label{
+*   width:100%;
+    overflow:hidden*
   }
 
-  /* 全てのinput/select */
   .task-form input,
-  .task-form select{
-    width:100%;
-    max-width:100%;
+  .task-*orm select,
+  .task-form textarea{*    width:100%;
+    min-width:0;
+ *  max-width:100%;
+    box*sizing:border-box;
   }
 
-  /* グループ選択 */
+  /* Safariの日付入力対策 */
+  .task-form input[type="date"]{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+    box-sizing:border-box;
+
+    appearance:none;
+    -webkit-appearance:none;
+
+    font-size:16px;
+  }
+
+  .date-inp{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
   #tfGroupRow{
     width:100%;
   }
 
   #tfGroupRow .fld{
-    flex:none;
     width:100%;
+    flex:none;
   }
 
   #tfGroup{
     width:100%;
   }
-
-  /* ボタン縦並び */
 
   .task-form .tf-btns{
     width:100%;
