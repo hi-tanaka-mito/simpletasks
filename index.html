@@ -336,10 +336,11 @@ label.fld{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--
   }
 
   .task-form .tf-row{
+    width:100%;
     display:flex;
     flex-direction:column;
-    align-items:flex-start;   /* ← stretchではなく左寄せ */
-    width:100%;
+    align-items:stretch;
+    justify-content:flex-start;
     gap:10px;
     margin:0;
     padding:0;
@@ -349,55 +350,83 @@ label.fld{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--
   .task-form .fld.date,
   .task-form .fld.narrow,
   .task-form .fld.wide{
-    display:flex;
-    flex-direction:column;
-
     width:100%;
     min-width:0;
     max-width:100%;
-
     flex:none;
-
     margin:0;
     padding:0;
-
-    align-self:flex-start;    /* ← 左寄せ */
+    align-self:stretch;
   }
 
   .task-form label{
-    overflow:hidden;
     text-align:left;
+    width:100%;
+    overflow:hidden;
   }
+
+  /* ==========================
+     高さ統一
+     ========================== */
 
   .task-form input,
   .task-form select,
+  .task-form button{
+    width:100%;
+    height:44px;
+    min-height:44px;
+    max-width:100%;
+    margin:0;
+    box-sizing:border-box;
+    font-size:16px;
+  }
+
   .task-form textarea{
     width:100%;
-    min-width:0;
+    min-height:88px;
+    height:auto;
     max-width:100%;
     box-sizing:border-box;
-    margin:0;
+    font-size:16px;
+    padding:10px 12px;
   }
+
+  /* ==========================
+     Safari Date対策
+     ========================== */
 
   .task-form input[type="date"]{
     width:100%;
-    min-width:0;
+    height:44px;
+    min-height:44px;
     max-width:100%;
+    min-width:0;
+
     box-sizing:border-box;
 
     appearance:none;
     -webkit-appearance:none;
 
     font-size:16px;
-    margin:0;
+    padding:0 12px;
   }
 
   .date-inp{
     width:100%;
-    min-width:0;
+    height:44px;
+    min-height:44px;
     max-width:100%;
+    min-width:0;
+
     box-sizing:border-box;
-    margin:0;
+  }
+
+  .task-form select{
+    padding:0 12px;
+  }
+
+  .task-form input{
+    padding:0 12px;
   }
 
   #tfGroupRow{
@@ -408,6 +437,7 @@ label.fld{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--
 
   #tfGroupRow .fld{
     width:100%;
+    max-width:100%;
     flex:none;
   }
 
@@ -415,26 +445,42 @@ label.fld{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--
     width:100%;
   }
 
+  /* ==========================
+     ボタン縦並び
+     ========================== */
+
   .task-form .tf-btns{
     width:100%;
-
     display:flex;
     flex-direction:column;
-
     gap:8px;
-
     margin:0;
     padding:0;
-
-    align-items:stretch;
   }
 
   .task-form .tf-btns button{
     width:100%;
+    height:44px;
+    min-height:44px;
     flex:none;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:0;
+  }
+
+  /* 強制左寄せ */
+
+  .fld{
+    min-width:0 !important;
+  }
+
+  .task-form .fld{
+    flex:0 0 auto !important;
   }
 }
-
 </style>
 </head>
 <body>
